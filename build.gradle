@@ -1,0 +1,21 @@
+subprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral()
+  }
+}
+
+project(':server') {
+  dependencies {
+    compile project(':api')
+    compile 'io.undertow:undertow-core:1.4.0.Final'
+    compile 'io.javaslang:javaslang:2.0.4'
+  }
+}
+
+project(':application') {
+  dependencies {
+    compile project(':api')
+  }
+}
